@@ -22,20 +22,7 @@ $log='<a href="registro.php" style="color:#69AE1D">
 	
 	<meta charset="utf-8">
 
-<link rel="apple-touch-icon" sizes="57x57" href="img/apple-icon-57x57.png" style="padding-top: 10px">
-<link rel="apple-touch-icon" sizes="60x60" href="img/apple-icon-60x60.png" style="padding-top: 10px" >
-<link rel="apple-touch-icon" sizes="72x72" href="img/apple-icon-72x72.png" style="padding-top: 10px">
-<link rel="apple-touch-icon" sizes="76x76" href="img/apple-icon-76x76.png" style="padding-top: 10px">
-<link rel="apple-touch-icon" sizes="114x114" href="img/apple-icon-114x114.png" style="padding-top: 10px">
-<link rel="apple-touch-icon" sizes="120x120" href="img/apple-icon-120x120.png" style="padding-top: 10px">
-<link rel="apple-touch-icon" sizes="144x144" href="img/apple-icon-144x144.png" style="padding-top: 10px">
-<link rel="apple-touch-icon" sizes="152x152" href="img/apple-icon-152x152.png" style="padding-top: 10px">
-<link rel="apple-touch-icon" sizes="180x180" href="img/apple-icon-180x180.png" style="padding-top: 10px">
-<link rel="icon" type="image/png" sizes="192x192"  href="img/android-icon-192x192.png" style="padding-top: 10px">
-<link rel="icon" type="image/png" sizes="32x32" href="img/favicon-32x32.png" style="padding-top: 10px">
-<link rel="icon" type="image/png" sizes="96x96" href="img/favicon-96x96.png" style="padding-top: 10px">
-<link rel="icon" type="image/png" sizes="16x16" href="img/favicon-16x16.png" style="padding-top: 10px">
-<link rel="manifest" href="/manifest.json">
+
 	
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
 
@@ -69,6 +56,21 @@ $log='<a href="registro.php" style="color:#69AE1D">
     #ber { 
   font: 100% sans-serif !important; 
 }
+#contenidos {
+    height: 440px;
+    overflow: auto;
+    font-family: sans-serif;
+    font-weight: normal;
+    font-size: 15px;
+    color: #000;
+    position: absolute;
+    top: 212px;
+    right: 110px;
+    width: 450px;
+    background: rgba(255, 255, 255, 0.7);
+    text-align: justify;
+}
+
 
     </style>
 	
@@ -120,7 +122,7 @@ $log='<a href="registro.php" style="color:#69AE1D">
 			<div class="row-fluid">
 				<div class="span3">
 					<h1 class="main-logo">
-						<a href="http://santiagoalonso.com/">
+						<a href="index.php">
 							<img src="img/logo_merimoto.png" alt="Merimoto">
 							
 						</a>
@@ -130,7 +132,7 @@ $log='<a href="registro.php" style="color:#69AE1D">
 					<ul class="top-menu">
                     <li class="with-margin"><a href="somos.php"><h2>Quienes somos</h2></a></li>
                     <li class="with-margin"> | </li>
-						<li class="with-margin"><a href="sucursales.php"><h2>Sucursales</h2></a></li>
+						<li class="with-margin"><a href="sucursal.php"><h2>Sucursales</h2></a></li>
 						<li class="with-margin"> | </li>
 						<!--<li>
 							<div class="search-content">
@@ -249,58 +251,7 @@ Visite nuestras sucursales distribuidas en Mérida y en las principales ciudades
 				</div>
 			</div>
 		</div>
-		 <script src="js/jquery.js"></script>
-    <script src="js/bootstrap.min.js"></script>
-    <script src="js/carousel.js"></script>
-    <script src="js/jquery.anythingslider.js"></script>
-    <script src="js/jquery.stellar.js"></script>
-	<script src="js/jquery-ui-1.10.3.custom.js"></script>
-    <script src="js/counter.js"></script>
-    <script src="js/waypoints.js"></script>
-	<script src="js/jquery.uniform.js"></script>
-    <script src="js/color-switcher.js"></script>
-    <script type="text/javascript">
-	
-		jQuery(function($){
-			// parallaax
-			$.stellar({
-				horizontalScrolling: true,
-				verticalOffset: 0
-			});
-			//$(".panel-collapse").collapse();
-
-			
-		   // AnythingSlider initialization
-			$('#slider').anythingSlider({
-        enablePlay          : true,      // if false, the play/stop button will still be visible, but not clickable.
-        autoPlay            : true,      // This turns off the entire slideshow FUNCTIONALY, not just if it starts running or not
-        autoPlayLocked      : true,     // If true, user changing slides will not stop the slideshow
-        startStopped        : false,     // If autoPlay is on, this can force it to start stopped
-        pauseOnHover        : true,      // If true & the slideshow is active, the slideshow will pause on hover
-        resumeOnVideoEnd    : true,      // If true & the slideshow is active & a youtube video is playing, the autoplay will pause until the video completes
-        stopAtEnd           : false,     // If true & the slideshow is active, the slideshow will stop on the last page. This also stops the rewind effect when infiniteSlides is false.
-        playRtl             : false,     // If true, the slideshow will move right-to-left
-        startText           : "Start",   // Start button text
-        stopText            : "Stop",    // Stop button text
-        delay               : 3000,      // How long between slideshow transitions in AutoPlay mode (in milliseconds)
-        resumeDelay         : 4000,     // Resume slideshow after user interaction, only if autoplayLocked is true (in milliseconds).
-        animationTime       : 600,       // How long the slideshow transition takes (in milliseconds)
-        easing              : "swing",   // Anything other than "linear" or "swing" requires the easing plugin
-      });
-			
-			//date picker
-			$("#datepicker").datepicker({
-				inline: true
-			});
-			
-			//form styling
-			$("select").uniform();
-			
-			
-			
-		})(jQuery);
-
-	</script>
+		
 <?php
 footer();
 ?>

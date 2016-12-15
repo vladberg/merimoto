@@ -1,86 +1,173 @@
-<?php @include("includes/etiquetas.php"); ?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
-<head>
-<title>.:: <?php echo $title_condiciones?> ::.</title>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<?php
+session_start();
+include_once ("lib/template.php"); 
+$link=conectarse();
 
-<link href="css/style.css" rel="stylesheet" type="text/css" />
-
-<!-- Fuentes de google-->
-<?php @include('includes/google_fonts.php');?>
-
-
-
- <link rel="stylesheet" href="responsive-slider/css/1140.css">
-  <link rel="stylesheet" href="responsive-slider/css/flexslider.css">
-  <link rel="stylesheet" href="responsive-slider/css/style.css">
-
-  <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"></script>
-	<script type="text/javascript" src="responsive-slider/js/jquery.flexslider-min.js"></script>
-	<script type="text/javascript" charset="utf-8">
-	  $(window).load(function() {
-	    $('.flexslider').flexslider({
-	    	controlsContainer: '.flex-container'
-	    });
-	  });
-	</script>
-	<!--[if lte IE 9]>		
-		<link rel="stylesheet" href="css/ie.css" type="text/css" media="screen" />
-		<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
-	<![endif]-->
-<script type="text/javascript">
-
-  var _gaq = _gaq || [];
-  _gaq.push(['_setAccount', 'UA-718520-23']);
-  _gaq.push(['_trackPageview']);
-
-  (function() {
-    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-  })();
-
-</script>
-
-
-<!--Javascript para apertura de ventanas, para formulario recomendar -->
-<script language="JavaScript"> 
-function recomendar(pagina) {
-var opciones="toolbar=no, location=no, directories=no, status=no, menubar=no, scrollbars=yes, resizable=no, width=650, height=850, top=24, left=250";
- Elcmnd=window.open(pagina,"",opciones);
+if(isset($_SESSION['servicios_user'])){
+$usuario=$_SESSION['servicios_user'];
+$log='<a href="#" onclick="document.frmlogout.submit();" style="color:#FE0000"><i class="fa fa-power-off"></i> Cerrar Sesión</a>';
 }
-</script>
+else{
+$usuario='<a href="user.login.php" style="color:#69AE1D">
+                <i class="fa fa-user"> INICIAR SESION </i>
+          </a>';
+$log='<a href="registro.php" style="color:#69AE1D">
+              <i class="fa fa-user"> REGISTRO </i>
+          </a>';
+}
+?>
+<!DOCTYPE html>
+<html equiv="Content-Type" content="text/html; charset=UTF-8">
+  <title>Merimoto</title>
+  
+  <meta charset="utf-8">
+
+
+  
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+
+    <link rel="stylesheet" href="css/bootstrap.css" type="text/css">
+  <link rel="stylesheet" href="css/superfish.css" type="text/css">
+  <link rel="stylesheet" href="css/template.css" type="text/css">
+  <link rel="stylesheet" href="css/custom.css" type="text/css">
+  <link href="css/style5.css" rel="stylesheet" type="text/css" />
+  <!-- UNCOMMENT BELOW IF YOU WANT RESPONSIVE LAYOUT FOR TABLET with device width -->
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!--<link rel="stylesheet" href="css/responsive-tablet.css" type="text/css" />-->
+  
+  <!-- Delete only if you're planning to use responsive for table with meta viewport device-width=1  -->
+  <link rel="stylesheet" href="css/responsive.css" type="text/css">
+  
+  
+  
+  <!-- Grab Google CDN's jQuery, with a protocol relative URL; fall back to local if offline -->
+
+  <script src="js/jquery.min.js"></script>
+  <script>window.jQuery || document.write('<script src="js/jquery-1.8.2.min.js">\x3C/script>')</script>
+  <script src="js/jquery.noconflict.js" type="text/javascript"></script>
+  <script src="js/modernizr.min.js" type="text/javascript"></script>
+  <link href="css/owl.carousel.css" rel="stylesheet">
+    <link href="css/owl.theme.css" rel="stylesheet">
+    <style type="text/css">
+.iosSlider {
+    width: 100%;
+    background: url(loader_dark.gif) no-repeat center center;
+    height: 370px !important; }
+    #ber { 
+  font: 100% sans-serif !important; 
+}
+#contenidos {
+    height: 460px;
+    overflow: auto;
+    font-family: sans-serif;
+    font-weight: normal;
+    font-size: 15px;
+    color: #000;
+    position: absolute;
+    top: 175px;
+    right: 120px;
+    width: 458px;
+    background: rgba(255, 255, 255, 0.7);
+    text-align: justify;
+}
+
+
+    </style>
+  
+  <link rel="stylesheet" href="css/style.css" type="text/css">
+  
+
+
 </head>
-<body>
-<div class="main">
-<!--Menu-->
-<div class="header_resize">
-      <div class="menu_nav">
-        <ul>
-          <li class="active"><a href="<?php echo $pinicio?>"><span><?php echo $inicio?></span></a></li>
-          <li><a href="<?php echo $psomos?>"><span><?php echo $somos?></span></a></li>
-           
-          <li><a href="<?php echo $pmotos?>"><span><?php echo $motos?></span></a></li>
-          <li><a href="<?php echo $pproductosf?>"><span><?php echo $productosf?></span></a></li>
-          <li><a href="<?php echo $pmotoresm?>"><span><?php echo $motoresm?></span></a></li>
-          <li><a href="<?php echo $paccesorios?>"><span><?php echo $accesorios?></span></a></li>
-           <li><a href="<?php echo $prefacciones?>"><span><?php echo $refacciones?></span></a></li>
-            <li><a href="<?php echo $psucursales?>"><span><?php echo $sucursales?></span></a></li>
-          <li><a href="<?php echo $pcontacto?>"><span><?php echo $contacto?></span></a></li>
-        </ul>
-      </div>
-      <div class="logo" style="margin-left:20px; margin-top:16px">
-        <h1><img src="images/logo_merimoto.png"  width="200" />
-        </h1>
-      </div>
-      <div class="clr"></div>
+
+<body class="">
+
+
+  <div id="page_wrapper">
+    
+    <link href="./index_files/css(2)" rel="stylesheet" type="text/css">
+<link rel="stylesheet" href="css/site2.css" type="text/css">
+<style>
+.t-title.light {
+    color: #FFFFFF;
+    font-size: 28px;
+    margin: 15px 0 0;
+    FONT-WEIGHT: 200;
+    TEXT-ALIGN: CENTER;
+}
+.content-about-us {
+    background-color: #ED1C24;
+    color: #FFFFFF;
+    padding-bottom: 10px;
+}
+</style>
+<header id="header" class="style2">
+  <div class="top-header">
+    <div class="container">
+      <!--<ul>
+        <li>
+            <?php echo $usuario;?>
+        </li>
+        <li>
+          |
+        </li>
+        <li>
+          <?php echo $log;?>
+        </li>
+      </ul>-->
     </div>
-
- 
-<!------>
-
-<br>
+  </div>
+  <div class="mid-header">
+    <div class="container">
+      <div class="row-fluid">
+        <div class="span3">
+          <h1 class="main-logo">
+            <a href="index.php">
+              <img src="img/logo_merimoto.png" alt="Merimoto">
+              
+            </a>
+          </h1>
+        </div>
+        <div class="span9">
+          <ul class="top-menu">
+                    <li class="with-margin"><a href="somos.php"><h2>Quienes somos</h2></a></li>
+                    <li class="with-margin"> | </li>
+            <li class="with-margin"><a href="sucursal.php"><h2>Sucursales</h2></a></li>
+            <li class="with-margin"> | </li>
+            <!--<li>
+              <div class="search-content">
+                <form action="busqueda.php" method="post">
+                  <input name="buscar" maxlength="50" type="text" size="20" placeholder="¿Qué estás buscando?" >
+                  <button type="submit" title="Buscar">
+                    <img src="img/lupa-busqueda.png" alt="Buscar">
+                  </button>
+                </form>
+              </div>
+            </li>-->
+            <li class="with-margin">
+              <a href="contacto.php">
+                <ul class="inline">
+                  <li>
+                    <img src="img/ico-contacto.png" alt="Contacto">
+                  </li>
+                  <li>
+                    Contáctanos
+                    <small>Estamos para ayudarte</small>
+                  </li>
+                </ul>
+                
+                
+              </a>
+            </li>
+            
+            
+            
+          </ul>
+        </div>
+      </div>
+      </div>
+</header> 
+      
 
    <div class="container">
      
@@ -133,7 +220,7 @@ En caso de no aceptar estas condiciones, no debe seguir visitando el Web de Meri
               </td></tr></table>
               </div>
              <!--Termina Contenido texto--->
-               <img src="images/condiciones.jpg" />
+               <img src="img/condiciones.jpg" />
                </li> 
                     
                     
@@ -159,42 +246,30 @@ En caso de no aceptar estas condiciones, no debe seguir visitando el Web de Meri
   
   
   
-  <!-- ---->
-   <!--Inicia fgb-->
-  <div class="fbg">
-    <div class="fbg_resize"><!--Inicia fgb_resize-->
-   
-    <div class="col c1"> 
-   <div style="height:1px"></div>
-      <?php include("includes/direccion.php"); ?>
-      
-     
-      </div>
-      
-      
-      <div class="col c4">
+  <!--! end of #container -->
+<!--  <div class="content"></div>-->
+   <!--Termina Espacio para poner algún contenido-->
   
-    <?php @include('includes/redes_sociales.php'); ?>
-     <div class="clr"></div>
-     
+  
+  
+  
+ <div class="content-about-us">
+      <div class="container">
+        <div class="row-fluid">
+          <div class="span12">
+            <h1 class="t-title light text-left">Matriz Mérida</h1>
+            
+            
+            <p style="text-align: center">
+              <span class="textos">Calle 86 Av. Itzáes No. 473-F con 47 Col. Inalámbrica Mérida, Yucatán&nbsp;&nbsp;Teléfono: (999) 925-3484,           <!--E-mail: <a href="#" class="link">info@merimoto.com.mx</a>--> </span><br />
        
-     
-     </div>
-
- <?php @include("includes/footer.php"); ?>
-</div><!--Termina fgb_resize-->
-
-
-</div><!--Termina fgb-->
- 
-
-   <div class="footer">
- 
-        <?php //@include("includes/footer.php"); ?>
-      <div style="clear:both;"></div>
-
-
-</div>
-
-</body>
-</html>
+       <a href="politicas_privacidad.php" class="link_ad2"><span style="color:#FFF">Aviso de Privacidad</span></a> &nbsp;&nbsp;<span style="color:#FFF">|</span> &nbsp;&nbsp;<a href="condiciones_uso.php" class="link_ad2"><span style="color:#FFF">Condiciones de Uso</span></a>
+            </p>
+                </div>
+        </div>
+      </div>
+    </div>
+    
+<?php
+footer();
+?>

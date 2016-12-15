@@ -17,7 +17,7 @@ include_once('lib/PHPMailer/class.smtp.php');
  
 //Recibir todos los parámetros del formulario
 //$para = 'ventas@sartory.mx';
-$para = 'bergman.pereira.novelo@gmail.com';
+$para = 'addy_honda@hotmail.com';
 $asunto = $_POST['asunto'];
 $mensaje = '<h2>'.$nombre.'</h2><h3>'.$email.'</h3><h3>'.$telefono.'</h3><h3>'.$text.'</h3>';
 $archivo = $imagen;
@@ -71,9 +71,54 @@ cabezal();
     <!-- Theme stylesheet, if possible do not edit this stylesheet -->
     <link href="css/style.default.css" rel="stylesheet" id="theme-stylesheet">
 
-    <!-- Custom stylesheet - for your changes -->
-    <link href="css/custom.css" rel="stylesheet">
- <div id="content">
+   
+<style type="text/css">
+    #get-it {
+    background: #ED1C24;
+    padding: 50px 0 30px;
+    color: #fff;
+    text-align: center;
+}
+.box-simple .icon {
+    color: #F39200;
+    border-color: #ED1C24;
+    -webkit-transition: all 0.2s ease-out;
+    -moz-transition: all 0.2s ease-out;
+    transition: all 0.2s ease-out;
+}
+.heading h1, .heading h2, .heading h3, .heading h4, .heading h5 {
+    display: inline-block;
+    border-bottom: solid 5px #ED1C24;
+    line-height: 1.1;
+    margin-bottom: 0;
+    padding-bottom: 10px;
+    vertical-align: middle;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+}
+.btn-template-main:hover, .btn-template-main:focus, .btn-template-main:active, .btn-template-main.active {
+    background: #ED1C24;
+    color: #ffffff;
+    border-color: #ED1C24;
+}
+.btn-template-main {
+    color: #ED1C24;
+    background-color: #ffffff;
+    border-color: #ED1C24;
+}
+
+h2 {
+    margin: 8px 0;
+    padding: 0px 0;
+    font-size: 18px;
+    font-weight: normal;
+    line-height: 1.2em;
+    color: #646364;
+    text-transform: none;
+    font-family: 'Fjalla One', sans-serif;
+}
+</style>
+     <div id="content">
             <div class="container" id="contact">
 
                 <section>
@@ -102,9 +147,7 @@ cabezal();
                                     <i class="fa fa-map-marker"></i>
                                 </div>
                                 <h3>Dirección</h3>
-                                <p>C.52 No.353-F int A
-                                    <br>X Avenida Pérez Ponce
-                                    <br>Colonia Itzímna, Mérida Yucatán <strong>CP 97100</strong>
+                                <p>Calle 86 Av. Itzáes <br/>No. 473-F con 47 <br/>Col. Inalámbrica.<br/>Mérida, Yucatán
                                 </p>
                             </div>
                             <!-- /.box-simple -->
@@ -118,8 +161,8 @@ cabezal();
                                     <i class="fa fa-phone"></i>
                                 </div>
                                 <h3>Call center</h3>
-                                <p class="text-muted">Contáctenos en los telefonos.</p>
-                                <p><strong>(999) 926 1006</strong><br/><strong>(999) 927 5857</strong>
+                                <p class="text-muted">Contáctenos en los telefono.</p>
+                                <p><strong> (999) 925-3484</strong><br/>
                                 </p>
                             </div>
                             <!-- /.box-simple -->
@@ -135,7 +178,7 @@ cabezal();
                                 <h3>Correo Electrónico</h3>
                                 <p class="text-muted">Envíenos sus dudas o sugerencias.</p>
                                 <ul class="list-style-none">
-                                    <li><strong><a href="mailto:">ventas@sartory.mx</a></strong>
+                                    <li><strong><a href="mailto:">addy_honda@hotmail.com</a></strong>
                                     </li>
                                 </ul>
                             </div>
@@ -213,7 +256,7 @@ cabezal();
         <!-- /#content -->
 
         <div >
-<iframe src="https://www.google.com/maps/embed?pb=!1m0!3m2!1ses-419!2smx!4v1459366708478!6m8!1m7!1sIcCv71PwdT3TN8_n2De2hw!2m2!1d20.98847962515664!2d-89.61162794786173!3f292.7263583008603!4f0!5f0.7820865974627469" width="100%" height="450" frameborder="0" style="border:0" allowfullscreen></iframe>
+<iframe src="https://www.google.com/maps/embed?pb=!1m0!3m2!1ses-419!2smx!4v1462206706300!6m8!1m7!1sutB8SyqPZ7S3IKDvmA8GqA!2m2!1d20.97968334976961!2d-89.6398517402053!3f235.24779173145066!4f-10.136908902083732!5f0.4000000000000002" width="100%" height="450" frameborder="0" style="border:0" allowfullscreen></iframe>
         </div>
 <!-- *** GET IT ***
 _________________________________________________________ -->

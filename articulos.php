@@ -31,17 +31,16 @@ $categorias=$row['categoria'];
 <html >
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-
 	<title>Merimotos</title>
 	
 	<meta charset="utf-8">
-	
+	<link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon">
+<link rel="icon" href="img/favicon.ico" type="image/x-icon">
 	
 	<link rel="stylesheet" href="css/bootstrap.css" type="text/css">
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
-	<link rel="stylesheet" href="css/superfish.css" type="text/css">
+	
 	<link rel="stylesheet" href="css/template.css" type="text/css">
-	<link rel="stylesheet" href="css/custom.css" type="text/css">
 	
 	<!-- UNCOMMENT BELOW IF YOU WANT RESPONSIVE LAYOUT FOR TABLET with device width -->
 	 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -50,18 +49,10 @@ $categorias=$row['categoria'];
 	<!-- Delete only if you're planning to use responsive for table with meta viewport device-width=1  -->
 	<link rel="stylesheet" href="css/responsive.css" type="text/css">
 	
-	<link rel="stylesheet" href="css/css" type="text/css" media="screen" id="google_font">
-	<link rel="stylesheet" href="css/css(1)" type="text/css" media="screen" id="google_font_body">
-	
 	<!-- Grab Google CDN's jQuery, with a protocol relative URL; fall back to local if offline -->
 
-	<script src="js/jquery.min.js"></script>
-	
-	<script>window.jQuery || document.write('<script src="js/jquery-1.8.2.min.js">\x3C/script>')</script>
-	<script src="js/jquery.noconflict.js" type="text/javascript"></script>
-	<script src="js/modernizr.min.js" type="text/javascript"></script>
-	<link href="css/owl.carousel.css" rel="stylesheet">
-    <link href="css/owl.theme.css" rel="stylesheet">
+	<link rel="stylesheet" href="css/responsive.css" type="text/css">
+<script src="js/jquery-1.8.2.min.js"></script>
     <style type="text/css">
 .iosSlider {
     width: 100%;
@@ -100,6 +91,16 @@ $categorias=$row['categoria'];
     line-height: 1.3;
     padding-top 30px !important;
 }
+h2 {
+    margin: 8px 0;
+    padding: 0px 0;
+    font-size: 18px;
+    font-weight: normal;
+    line-height: 1.2em;
+    color: #646364;
+    text-transform: none;
+    font-family: 'Fjalla One', sans-serif;
+}
     </style>
 
 	
@@ -114,7 +115,7 @@ $categorias=$row['categoria'];
 
 	<div id="page_wrapper">
 		
-		<link href="./index_files/css(2)" rel="stylesheet" type="text/css">
+		
 <link rel="stylesheet" href="css/site2.css" type="text/css">
 
 <header id="header" class="style2">
@@ -136,9 +137,9 @@ $categorias=$row['categoria'];
 				</div>
 				<div class="span9">
 					<ul class="top-menu">
-                    <li class="with-margin"><a href="registro.php"><h2>Quienes somos</h2></a></li>
+                    <li class="with-margin"><a href="somos.php"><h2>Quienes somos</h2></a></li>
                     <li class="with-margin"> | </li>
-						<li class="with-margin"><a href="registro.php"><h2>Sucursales</h2></a></li>
+						<li class="with-margin"><a href="sucursal.php"><h2>Sucursales</h2></a></li>
 						<li class="with-margin"> | </li>
 						<!--<li>
 							<div class="search-content">

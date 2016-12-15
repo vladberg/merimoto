@@ -74,15 +74,18 @@ $categoria=$_POST['categoria'];
 			<div class="container">
 				<div class="row-fluid">
 					<div class="span12">
-						<h1 class="t-title light text-left">Los mejores Productos Promocionales</h1>
-						
-						<p>
-							Son artículos promocionales que Sartory ofrece en una gran variedad
-							de estilos y funciones para cualquier campaña publicitaria. Además pueden funcionar como
-							una herramienta de marketing con increíbles resultados. El regalar productos promocionales
-							útiles, como los bolígrafos, con la marca de su empresa, negocio o información lo ayudará
-							a promover su marca en el mercado.
-						</p>					</div>
+						<h1 class="t-title light text-left">HondaMotos</h1>
+						<?
+						$query="select id_mensaje,pie from mensaje";
+			$resultado=mysql_query($query, $link);
+			while($row=mysql_fetch_array($resultado)){ 
+				$pie=$row[1];
+
+				}?>
+						<p style="text-align: center">
+							<?php echo $pie;?>
+						</p>
+								</div>
 				</div>
 			</div>
 		</div>

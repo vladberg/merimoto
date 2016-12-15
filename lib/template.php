@@ -20,32 +20,15 @@ function cabezal(){?>
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-	<title>Merimotos</title>
-		<meta charset="utf-8">
+	<title>Merimoto</title>
 	
 
 
-<link rel="apple-touch-icon" sizes="57x57" href="img/apple-icon-57x57.png">
-<link rel="apple-touch-icon" sizes="60x60" href="img/apple-icon-60x60.png">
-<link rel="apple-touch-icon" sizes="72x72" href="img/apple-icon-72x72.png">
-<link rel="apple-touch-icon" sizes="76x76" href="img/apple-icon-76x76.png">
-<link rel="apple-touch-icon" sizes="114x114" href="img/apple-icon-114x114.png">
-<link rel="apple-touch-icon" sizes="120x120" href="img/apple-icon-120x120.png">
-<link rel="apple-touch-icon" sizes="144x144" href="img/apple-icon-144x144.png">
-<link rel="apple-touch-icon" sizes="152x152" href="img/apple-icon-152x152.png">
-<link rel="apple-touch-icon" sizes="180x180" href="img/apple-icon-180x180.png">
-<link rel="icon" type="image/png" sizes="192x192"  href="img/android-icon-192x192.png">
-<link rel="icon" type="image/png" sizes="32x32" href="img/favicon-32x32.png">
-<link rel="icon" type="image/png" sizes="96x96" href="img/favicon-96x96.png">
-<link rel="icon" type="image/png" sizes="16x16" href="img/favicon-16x16.png">
-<link rel="manifest" href="/manifest.json">
-<meta name="msapplication-TileColor" content="#ffffff">
-<meta name="msapplication-TileImage" content="img/ms-icon-144x144.png">
-<meta name="theme-color" content="#ffffff">	
+
+<link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon">
+<link rel="icon" href="img/favicon.ico" type="image/x-icon">
 	<link rel="stylesheet" href="css/bootstrap.css" type="text/css">
-	<link rel="stylesheet" href="css/superfish.css" type="text/css">
 	<link rel="stylesheet" href="css/template.css" type="text/css">
-	<link rel="stylesheet" href="css/custom.css" type="text/css">
 	
 	<!-- UNCOMMENT BELOW IF YOU WANT RESPONSIVE LAYOUT FOR TABLET with device width -->
 	 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -53,29 +36,29 @@ function cabezal(){?>
 	
 	<!-- Delete only if you're planning to use responsive for table with meta viewport device-width=1  -->
 	<link rel="stylesheet" href="css/responsive.css" type="text/css">
-	
-	
-	
-	<!-- Grab Google CDN's jQuery, with a protocol relative URL; fall back to local if offline -->
 
 	<script src="js/jquery.min.js"></script>
-	<script>window.jQuery || document.write('<script src="js/jquery-1.8.2.min.js">\x3C/script>')</script>
-	<script src="js/jquery.noconflict.js" type="text/javascript"></script>
-	<script src="js/modernizr.min.js" type="text/javascript"></script>
-	<link href="css/owl.carousel.css" rel="stylesheet">
+	
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
-    <link href="css/owl.theme.css" rel="stylesheet">
+   
     <style type="text/css">
-.iosSlider {
-    width: 100%;
-    background: url(loader_dark.gif) no-repeat center center;
-    height: 370px !important; 
+
 
     .img-rounded2 {
   border-radius: 50px;
 }
    .img-rounded3 {
   border-radius: 10px;
+}
+h2 {
+    margin: 8px 0;
+    padding: 0px 0;
+    font-size: 18px;
+    font-weight: normal;
+    line-height: 1.2em;
+    color: #646364;
+    text-transform: none;
+    font-family: 'Fjalla One', sans-serif;
 }
     </style>
 	
@@ -91,6 +74,9 @@ function cabezal(){?>
 
 
 	<div id="page_wrapper">
+		
+
+<link rel="stylesheet" href="css/site2.css" type="text/css">
 
 <header id="header" class="style2">
 	<div class="top-header">
@@ -121,9 +107,9 @@ function cabezal(){?>
 				</div>
 				<div class="span9">
 					<ul class="top-menu">
-                    <li class="with-margin"><a href="registro.php"><h2>Quienes somos</h2></a></li>
+                    <li class="with-margin"><a href="somos.php"><h2>Quienes somos</h2></a></li>
                     <li class="with-margin"> | </li>
-						<li class="with-margin"><a href="registro.php"><h2>Sucursales</h2></a></li>
+						<li class="with-margin"><a href="sucursal.php"><h2>Sucursales</h2></a></li>
 						<li class="with-margin"> | </li>
 						<!--<li>
 							<div class="search-content">
@@ -179,7 +165,7 @@ function slider(){
 		
 				<div class="item" >
 						<a href="*">
-						<img src="./banners/<?php echo $imagen;?>" >
+						<img src="banners/<?php echo $imagen;?>" >
 						</a>
 						<div class="main-caption" id="pole-position">
 							<div class="container paddingless">
@@ -208,18 +194,7 @@ function slider(){
 			<div class="scrollbarContainer"></div>
 		</div>
 		<!--fin slider -->
-            <div class="content-about-us">
-    		<div class="container">
-				<div class="row-fluid">
-					<div class="span12">
-						<h1 class="t-title light text-left"><?php echo $nombre_categoria;?></h1>						
-						<p>
-						
-						</p>
-					</div>
-				</div>
-			</div>
-		</div>
+           
 <?php
 }
 
@@ -245,11 +220,10 @@ function footer()
 					</div>
 				</div>
 				<div class="row-fluid">
-					<div class="span13">
+					<div class="span12">
 						<div class="footer-copy">
-							
 							<span>
-								Copyright © 2016. <strong>Merimoto</strong>. Contacto: (999) 925-3484. Derechos Reservados. Sitio desarrollado por <a href="admin/" target="_blank" title="Ir al inicio">
+								Copyright © 2016. <strong>Merimoto</strong> . <strong><a href="./admin" target="_blank"> ADMINISTRADOR</a></strong> . Derechos Reservados. Sitio desarrollado por <a href="http://www.sartory.mx" target="_blank" title="Ir al inicio">
 								<img src="img/SARTORYlogo3.png" alt="Sartory">
 							</a>
 							</span>
@@ -287,19 +261,19 @@ function footer()
 	function ppOpen(panel, width){
 		jQuery.prettyPhoto.close();
 		setTimeout(function() {
-			jQuery.fn.prettyPhoto({social_tools: false, deeplinking: false, show_title: false, default_width: width, theme:'pp_kalypso'});
+			jQuery.fn.prettyPhoto({ deeplinking: false, show_title: false, default_width: width, theme:'pp_kalypso'});
 			jQuery.prettyPhoto.open(panel);
 		}, 300);
 	} // function to open different panel within the panel
 	
 	jQuery(document).ready(function($) {
-		jQuery("a[data-rel^='prettyPhoto'], .prettyphoto_link").prettyPhoto({theme:'pp_kalypso',social_tools:false, deeplinking:false});
+		jQuery("a[data-rel^='prettyPhoto'], .prettyphoto_link").prettyPhoto({theme:'pp_kalypso', deeplinking:false});
 		jQuery("a[rel^='prettyPhoto']").prettyPhoto({theme:'pp_kalypso'});
 		jQuery("a[data-rel^='prettyPhoto[login_panel]']").prettyPhoto({theme:'pp_kalypso', default_width:800, social_tools:false, deeplinking:false});
 		
 		jQuery(".prettyPhoto_transparent").click(function(e){
 			e.preventDefault();
-			jQuery.fn.prettyPhoto({social_tools: false, deeplinking: false, show_title: false, default_width: 980, theme:'pp_kalypso transparent', opacity: 0.95});
+			jQuery.fn.prettyPhoto({ deeplinking: false, show_title: false, default_width: 980, theme:'pp_kalypso transparent', opacity: 0.95});
 			jQuery.prettyPhoto.open($(this).attr('href'),'','');
 		});
 		
@@ -308,8 +282,6 @@ function footer()
 
 
 <script type="text/javascript" src="js/bootstrap.min.js"></script><!-- Bootstrap Framework -->
-
-<script type="text/javascript" src="js/superfish_menu.js"></script><!-- Superfish Menu -->
 
 
 </body></html>

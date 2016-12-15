@@ -24,7 +24,7 @@
 
 	require_once "recaptchalib.php";
 
-  $secret = "6Lfhvx4TAAAAAIJmPfSjqdxXDUqinQISeeDikhXK";
+  $secret = "6Lc-2h4TAAAAAFWc_Op0e8rTv9gRyEp_zpxmWioC";
 
  
 
@@ -226,7 +226,7 @@ background-color: #eee;
 
           
 
-           <a class="brand" href="http://www.sartory.mx/" align="center" data-toggle="collapse" data-target=".nav-collapse">
+           <a class="brand" href="../index.php" align="center" data-toggle="collapse" data-target=".nav-collapse">
 
                   <img src="img/logo_merimoto.png" width="320px">
 
@@ -266,7 +266,7 @@ background-color: #eee;
 
         <label><input size="35" type="password" name="pass" id="pass" class="form-control" placeholder="Password" required> <input name="psswd" type="hidden" id="psswd"/>   </label> <br/>
 
-        <div class="g-recaptcha" data-sitekey="6Lfhvx4TAAAAAEWr2szAHl3mnyR7YriK_dNgMVH9"></div><br/>
+        <div class="g-recaptcha" data-sitekey="6Lc-2h4TAAAAAJrW6W3gBW2ruBTdlKaadEepKhQC"></div><br/>
 
           
 

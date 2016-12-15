@@ -184,9 +184,9 @@ class PHPExcel_Reader_Excel2007 implements PHPExcel_Reader_IReader
 	 */
 	public function canRead($pFilename)
 	{
-		// Check if zip class exists
-		if (!class_exists('ZipArchive')) {
-			return false;
+		// Check if zip class exists
+		if (!class_exists('ZipArchive')) {
+			return false;
 		}
 
 		// Check if file exists
@@ -822,11 +822,11 @@ class PHPExcel_Reader_Excel2007 implements PHPExcel_Reader_IReader
 												} else {
 													// Formula
 													$this->_castToFormula($c,$r,$cellDataType,$value,$calculatedValue,$sharedFormulas,'_castToBool');
-													if (isset($c->f['t'])) {
-														$att = array();
-														$att = $c->f;
-														$docSheet->getCell($r)->setFormulaAttributes($att);
-													}
+													if (isset($c->f['t'])) {
+														$att = array();
+														$att = $c->f;
+														$docSheet->getCell($r)->setFormulaAttributes($att);
+													}
 	//												echo '$calculatedValue = '.$calculatedValue.'<br />';
 												}
 												break;
@@ -1592,7 +1592,7 @@ class PHPExcel_Reader_Excel2007 implements PHPExcel_Reader_IReader
 		if (isset($style->fill)) {
 			if ($style->fill->gradientFill) {
 				$gradientFill = $style->fill->gradientFill[0];
-				if(!empty($gradientFill["type"])) {
+				if(!empty($gradientFill["type"])) {
 					$docStyle->getFill()->setFillType((string) $gradientFill["type"]);
 				}
 				$docStyle->getFill()->setRotation(floatval($gradientFill["degree"]));

@@ -20,93 +20,90 @@ $ver=2;
 }
 
 if($_POST){
-//Recibir todos los parámetros del formulario
-
-$imagen=$_POST['action'];
-$para = 'bergman.pereira.novelo@gmail.com';
-$asunto = 'Cotización';
-$unidades = $_POST['unidades'];
-$color = $_POST['color'];
-$personalizado = $_POST['personalizado'];
-$codigo_articulo = $_POST['codigo_articulo'];
-$nombre_articulo = $_POST['nombre_articulo'];
 $nombre = $_POST['nombre'];
+$asunto = 'Cotizacion';
 $email = $_POST['email'];
-$comentario = $_POST['comentario'];
-$mensaje = "Solicitud de Cotización <br/>";
-$mensaje.="<strong>Nombre: </strong>".$nombre."<br/>";
-$mensaje.="<strong>Correo de Contacto: </strong>".$email."<br/>";
-$mensaje.="<strong>Articulo </strong>".$nombre_articulo."<br/> <strong>Codigo </strong>".$codigo_articulo."<br/>";
-$mensaje.="<strong>Cantidad: </strong>".$unidades." Unidades"."<br/>";
-$mensaje.="<strong>color </strong>".$color."<br/>";
-$mensaje.= "<strong>Tipo de Perzonalizado</strong> ".$personalizado."<br/>";
-$mensaje.= "<strong>Comentario</strong> ".$comentario."</br>";
-
+$telefono = $_POST['telefono'];
+$text = $_POST['mensaje'];
+$imagen=$_POST['action'];
+$asunto = $_POST['asunto'];
+$mensaje = '<h2>'.$nombre.'</h2><h3>'.$email.'</h3><h3>'.$telefono.'</h3><h3>'.$text.'</h3>';
 $archivo = $imagen;
  
+//$para = 'bergman.pereira.novelo@gmail.com';
+$para = 'addy_honda@hotmail.com';
 //Librerías para el envío de mail
 include_once('lib/PHPMailer/class.phpmailer.php');
 include_once('lib/PHPMailer/class.smtp.php');
  
-
 //Este bloque es importante
-$correo = new PHPMailer();
+$mail = new PHPMailer();
+$mail->IsSMTP();
+//$mail->SMTPAuth = true;
+$mail->SMTPSecure = "tsl";
+$mail->Host = "localhost";
+$mail->Port = 25;
  
-$correo->IsSMTP();
+//Nuestra cuenta
+//$mail->Username ='bergman.pereira.novelo@gmail.com';
+//$mail->Password = 'vladberg01'; //Su password
  
-$correo->SMTPAuth = true;
- 
-$correo->SMTPSecure = 'tls';
- 
-$correo->Host = "localhost";
- 
-$correo->Port = 25;
-
-$correo->Charset = "UTF-8";
- 
-//$correo->Username   = "bergman.pereira.novelo@gmail.com";
- 
-//$correo->Password   = "vladberg01";
- 
-$correo->SetFrom("noreply@sartory.com.mx", "Sistema de Cotizaciones");
- 
-$correo->AddReplyTo("noreply@sartory.com.mx","Webmaster");
- 
-$correo->AddAddress("bergman.pereira.novelo@gmail.com", "Ventas Sartory");
- 
-$correo->Subject = "Cotización";
- 
-$correo->MsgHTML($mensaje);
- 
-$correo->AddAttachment($archivo,$archivo);
- 
-if($correo->Send()) {
+//Agregar destinatario
+$mail->SetFrom("noreply@merimoto.com.mx", "Merimoto Cotizaciones");
+$mail->AddAddress($para);
+$mail->Subject = $asunto;
+$mail->Body = $mensaje;
+//Para adjuntar archivo
+$mail->AddAttachment($archivo, $archivo);
+$mail->MsgHTML($mensaje);
   
-  echo "Mensaje enviado con exito.";
+//Avisar si fue enviado o no y dirigir al index
+if($mail->Send())
+{
+    echo'<script type="text/javascript">
+            alert("Enviado Correctamente");            
+         </script>';
+}
+else{
+    echo'<script type="text/javascript">
+            alert("NO ENVIADO, intentar de nuevo");
+         </script>';
 }
  }
  $ids=$_GET['id'];
- $query="select a.nombre,a.categoria,c.id_categoria,c.categoria from articulos a,categorias c
- where a.estatus=1 and a.id_articulo=$ids and a.categoria = c.id_categoria";
-			$resultado=mysql_query($query, $link);
-			while($row=mysql_fetch_array($resultado)){ 
-      $nombre_producto=html_entity_decode($row[0], ENT_QUOTES);
-      $id_cate=$row[1];
-      $idc=$row[2];
-      $cat=$row[3];
-  }
 
+ $query="select a.nombre,a.categoria,c.id_categoria,c.categoria from articulos a,categorias c
+
+ where a.estatus=1 and a.id_articulo=$ids and a.categoria = c.id_categoria";
+
+			$resultado=mysql_query($query, $link);
+
+			while($row=mysql_fetch_array($resultado)){ 
+
+      $nombre_producto=html_entity_decode($row[0], ENT_QUOTES);
+
+      $id_cate=$row[1];
+
+      $idc=$row[2];
+
+      $cat=$row[3];
+
+  }
 
 ?>
 <!DOCTYPE html>
-<html equiv="Content-Type" content="text/html; charset=UTF-8">	<meta charset="utf-8">
-    <title>Merimotos</title>
+<html equiv="Content-Type" content="text/html; charset=UTF-8">
+	<title>Merimoto</title>
 	
+	<meta charset="utf-8">
+
+<link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon">
+<link rel="icon" href="img/favicon.ico" type="image/x-icon">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+
+    <link rel="stylesheet" href="js/bootstrap2.css" type="text/css">
 	
-	<link rel="stylesheet" href="css/bootstrap.css" type="text/css">
-	<link rel="stylesheet" href="css/superfish.css" type="text/css">
 	<link rel="stylesheet" href="css/template.css" type="text/css">
-	<link rel="stylesheet" href="css/custom.css" type="text/css">
 	
 	<!-- UNCOMMENT BELOW IF YOU WANT RESPONSIVE LAYOUT FOR TABLET with device width -->
 	 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -114,31 +111,64 @@ if($correo->Send()) {
 	
 	<!-- Delete only if you're planning to use responsive for table with meta viewport device-width=1  -->
 	<link rel="stylesheet" href="css/responsive.css" type="text/css">
-	
-	<link rel="stylesheet" href="css/css" type="text/css" media="screen" id="google_font">
-	<link rel="stylesheet" href="css/css(1)" type="text/css" media="screen" id="google_font_body">
-	
-	<!-- Grab Google CDN's jQuery, with a protocol relative URL; fall back to local if offline -->
-
-	<script src="js/jquery.min.js"></script>
-	<script>window.jQuery || document.write('<script src="js/jquery-1.8.2.min.js">\x3C/script>')</script>
-	<script src="js/jquery.noconflict.js" type="text/javascript"></script>
-	<script src="js/modernizr.min.js" type="text/javascript"></script>
-	<link href="css/owl.carousel.css" rel="stylesheet">
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
-    <link href="css/owl.theme.css" rel="stylesheet">
-    <script type="text/javascript" src="js/jquery-1.3.2.min.js"></script>
+<script src="js/jquery-1.8.2.min.js"></script>
     <style type="text/css">
 .iosSlider {
     width: 100%;
     background: url(loader_dark.gif) no-repeat center center;
-    height: 370px !important; 
+    height: 370px !important; }
 
-    .img-rounded2 {
+ .img-rounded2 {
   border-radius: 50px;
 }
    .img-rounded3 {
   border-radius: 10px;
+}
+h2 {
+    margin: 8px 0;
+    padding: 0px 0;
+    font-size: 18px;
+    font-weight: normal;
+    line-height: 1.2em;
+    color: #646364;
+    text-transform: none;
+    font-family: 'Fjalla One', sans-serif;
+}
+.btn-template-main:hover, .btn-template-main:focus, .btn-template-main:active, .btn-template-main.active {
+    background: #ED1C24;
+    color: #ffffff;
+    border-color: #ED1C24;
+}
+.btn-template-main {
+    color: #ED1C24;
+    background-color: #ffffff;
+    border-color: #ED1C24;
+}
+.btn-primary {
+    background-color: #EE1D25;
+    background-image: -moz-linear-gradient(top, #0088cc, #0044cc);
+    background-image: -ms-linear-gradient(top, #0088cc, #0044cc);
+    background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#0088cc), to(#0044cc));
+    background-image: -webkit-linear-gradient(top, #EE1D25, #EE1D25);
+    background-image: -o-linear-gradient(top, #0088cc, #0044cc);
+    background-image: linear-gradient(top, #0088cc, #0044cc);
+    background-repeat: repeat-x;
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#0088cc', endColorstr='#0044cc', GradientType=0);
+    border-color: #0044cc #0044cc #002a80;
+    border-color: rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.25);
+    filter: progid:DXImageTransform.Microsoft.gradient(enabled = false);
+}
+.product-gallery .big_image {
+    width: 100%;
+    text-align: center;
+    height: auto;
+}
+.modal.fade.in {
+    top: 40%;
+}
+.modal {
+
+    max-height: 654px;
 }
     </style>
 	<script type="text/javascript">
@@ -159,8 +189,7 @@ function agregar() {
 
 
 	<div id="page_wrapper">
-		
-		<link href="./index_files/css(2)" rel="stylesheet" type="text/css">
+
 <link rel="stylesheet" href="css/site2.css" type="text/css">
 
 <header id="header" class="style2">
@@ -174,17 +203,17 @@ function agregar() {
 			<div class="row-fluid">
 				<div class="span3">
 					<h1 class="main-logo">
-						<a href="http://www.sartory.mx">
-							<img src="img/logo_merimoto.png" alt="Sartory">
+						<a href="index.php">
+							<img src="img/logo_merimoto.png" alt="Merimoto">
 							
 						</a>
 					</h1>
 				</div>
 				<div class="span9">
 					<ul class="top-menu">
-                    <li class="with-margin"><a href="registro.php"><h2>Quienes somos</h2></a></li>
+                    <li class="with-margin"><a href="somos.php"><h2>Quienes somos</h2></a></li>
                     <li class="with-margin"> | </li>
-						<li class="with-margin"><a href="registro.php"><h2>Sucursales</h2></a></li>
+						<li class="with-margin"><a href="sucursal.php"><h2>Sucursales</h2></a></li>
 						<li class="with-margin"> | </li>
 						<!--<li>
 							<div class="search-content">
@@ -284,9 +313,53 @@ return confirm( mensaje );
 												<img class="width300" src="articulos/<?php echo $imagen;?>" alt="<?php echo $nombre;?>">
 											</a>
 										</div>
-																			
+										
+										<a data-toggle="modal" href="#example"  class="btn btn-template-main btn-large">Cotizar</a>
+										<div id="example" class="modal hide fade in" style="display: none;">
+   
+											 <div class="modal-header">
+        <a data-dismiss="modal" class="close">×</a>
+        <h3>Cotizar <?php echo $nombre;?></h3>
+     </div>
+     <div class="modal-body">
+     <form action="" method="post">
+     <input type="hidden" value="articulos/<?php echo $imagen;?>" name="action" />
+         <div class="modal-body">
+        <table style="text-align: center">
+        <tr>
+                                        	<td></td><td><img  width="350px" height="250px" src="articulos/<?php echo $imagen;?>" alt="<?php echo $nombre;?>">   </td>
+                                        </tr>
+        <tr>
+        
+        <td></td><td><input type="text" class="form-control" id="firstname" name="nombre" placeholder="Nombre" style="width: 500px !important"  required="required"></td>
+        </tr>
+        <tr>
+        
+                                            <td></td><td><input name="email" type="text" class="form-control" style="width: 500px !important" placeholder="Email" id="email" required="required"></td>
+                                        </tr>
+                                        <tr>
+                                            <td></td><td><input type="text" name="telefono" class="form-control" style="width: 500px !important"  placeholder="Telefono" id="subject" required="required"></td>
+                                        </tr>
+                                        <tr>
+                                            <td></td><td ><textarea id="message" class="form-control" name="mensaje" style="width: 500px !important"  placeholder="Mensaje" required="required"></textarea></td>
+                                        </tr>
+                                        
+                                        <tr  style="margin-left: 150px;">
+                                        <td></td>
+                                         <td><button type="submit" class="btn btn-template-main"><i class="fa fa-envelope-o"></i> Enviar mensaje</button></td>
+                                        </tr>
+
+                                        </table>          
+    </div>   
+     
+    </div>
+    </form>
+</div>		<script src="js/jquery1.js"></script>
+		<script src="js/bootstrap-modal.js"></script>								
 									</div>
+
 								</div>
+
 								
 								<div class="span8">
 									<div class="main-data">
@@ -417,7 +490,7 @@ return confirm( mensaje );
 									<div class="tabbable tabs_style4">
 									<div class="tab-pane" id="shop-tab3" style="padding: 10px 15px 15px;">
 												<hr>
-												<!--<div class="fb-comments" data-href="http://www.impressline.com.mx/detalle.php?id_categoria=1&id=5" data-num-posts="5" data-width="875"></div>-->
+												
 											
 											</div>
 										</div>
@@ -434,6 +507,7 @@ return confirm( mensaje );
 				</div>
 			</div>
 		</section>
+
 <?php
 footer();
 ?>

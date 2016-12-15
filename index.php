@@ -22,27 +22,13 @@ $log='<a href="registro.php" style="color:#69AE1D">
 	
 	<meta charset="utf-8">
 
-<link rel="apple-touch-icon" sizes="57x57" href="img/apple-icon-57x57.png" style="padding-top: 10px">
-<link rel="apple-touch-icon" sizes="60x60" href="img/apple-icon-60x60.png" style="padding-top: 10px" >
-<link rel="apple-touch-icon" sizes="72x72" href="img/apple-icon-72x72.png" style="padding-top: 10px">
-<link rel="apple-touch-icon" sizes="76x76" href="img/apple-icon-76x76.png" style="padding-top: 10px">
-<link rel="apple-touch-icon" sizes="114x114" href="img/apple-icon-114x114.png" style="padding-top: 10px">
-<link rel="apple-touch-icon" sizes="120x120" href="img/apple-icon-120x120.png" style="padding-top: 10px">
-<link rel="apple-touch-icon" sizes="144x144" href="img/apple-icon-144x144.png" style="padding-top: 10px">
-<link rel="apple-touch-icon" sizes="152x152" href="img/apple-icon-152x152.png" style="padding-top: 10px">
-<link rel="apple-touch-icon" sizes="180x180" href="img/apple-icon-180x180.png" style="padding-top: 10px">
-<link rel="icon" type="image/png" sizes="192x192"  href="img/android-icon-192x192.png" style="padding-top: 10px">
-<link rel="icon" type="image/png" sizes="32x32" href="img/favicon-32x32.png" style="padding-top: 10px">
-<link rel="icon" type="image/png" sizes="96x96" href="img/favicon-96x96.png" style="padding-top: 10px">
-<link rel="icon" type="image/png" sizes="16x16" href="img/favicon-16x16.png" style="padding-top: 10px">
-<link rel="manifest" href="/manifest.json">
-	
+<link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon">
+<link rel="icon" href="img/favicon.ico" type="image/x-icon">
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
 
     <link rel="stylesheet" href="css/bootstrap.css" type="text/css">
-	<link rel="stylesheet" href="css/superfish.css" type="text/css">
+	
 	<link rel="stylesheet" href="css/template.css" type="text/css">
-	<link rel="stylesheet" href="css/custom.css" type="text/css">
 	
 	<!-- UNCOMMENT BELOW IF YOU WANT RESPONSIVE LAYOUT FOR TABLET with device width -->
 	 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -50,17 +36,8 @@ $log='<a href="registro.php" style="color:#69AE1D">
 	
 	<!-- Delete only if you're planning to use responsive for table with meta viewport device-width=1  -->
 	<link rel="stylesheet" href="css/responsive.css" type="text/css">
-	
-	
-	
-	<!-- Grab Google CDN's jQuery, with a protocol relative URL; fall back to local if offline -->
+<script src="js/jquery-1.8.2.min.js"></script>
 
-	<script src="js/jquery.min.js"></script>
-	<script>window.jQuery || document.write('<script src="js/jquery-1.8.2.min.js">\x3C/script>')</script>
-	<script src="js/jquery.noconflict.js" type="text/javascript"></script>
-	<script src="js/modernizr.min.js" type="text/javascript"></script>
-	<link href="css/owl.carousel.css" rel="stylesheet">
-    <link href="css/owl.theme.css" rel="stylesheet">
     <style type="text/css">
 .iosSlider {
     width: 100%;
@@ -69,7 +46,16 @@ $log='<a href="registro.php" style="color:#69AE1D">
     #ber { 
   font: 100% sans-serif !important; 
 }
-
+h2 {
+    margin: 8px 0;
+    padding: 0px 0;
+    font-size: 18px;
+    font-weight: normal;
+    line-height: 1.2em;
+    color: #646364;
+    text-transform: none;
+    font-family: 'Fjalla One', sans-serif;
+}
     </style>
 	
 	<link rel="stylesheet" href="css/style.css" type="text/css">
@@ -83,7 +69,6 @@ $log='<a href="registro.php" style="color:#69AE1D">
 
 	<div id="page_wrapper">
 		
-		<link href="./index_files/css(2)" rel="stylesheet" type="text/css">
 <link rel="stylesheet" href="css/site2.css" type="text/css">
 <style>
 .t-title.light {
@@ -130,7 +115,7 @@ $log='<a href="registro.php" style="color:#69AE1D">
 					<ul class="top-menu">
                     <li class="with-margin"><a href="somos.php"><h2>Quienes somos</h2></a></li>
                     <li class="with-margin"> | </li>
-						<li class="with-margin"><a href="sucursales.php"><h2>Sucursales</h2></a></li>
+						<li class="with-margin"><a href="sucursal.php"><h2>Sucursales</h2></a></li>
 						<li class="with-margin"> | </li>
 						<!--<li>
 							<div class="search-content">
@@ -166,8 +151,25 @@ $log='<a href="registro.php" style="color:#69AE1D">
 			</div>
 </header>
 <?php slider(); ?>
-	
-			
+	<?
+						$query="select id_mensaje,bienvenida from mensaje";
+			$resultado=mysql_query($query, $link);
+			while($row=mysql_fetch_array($resultado)){ 
+				$bienvenida=$row[1];
+
+				}?>
+			 <div class="content-about-us">
+    		<div class="container">
+				<div class="row-fluid">
+					<div class="span12">
+						<h1 class="t-title light text-left"><?php echo $bienvenida;?></h1>						
+						<p>
+						
+						</p>
+					</div>
+				</div>
+			</div>
+		</div>
 	<div class="container">
 			<div class="row-fluid" >
             
@@ -193,7 +195,7 @@ $log='<a href="registro.php" style="color:#69AE1D">
 			?>
 
 	<div class="span70">
-					<table class="s-square">
+					<table >
 						<tbody><tr>
 							<td>
 								<a href="articulos.php?id=<?php echo $id_categoria;?>&h=<?php echo $hora;?>&f=<?php echo $fecha;?>&us=<?php echo $us;?>">
@@ -221,36 +223,27 @@ $log='<a href="registro.php" style="color:#69AE1D">
 				<div class="row-fluid">
 					<div class="span12">
 						<h1 class="t-title light text-left">HondaMotos</h1>
-						
-						
+						<?
+						$query="select id_mensaje,pie from mensaje";
+			$resultado=mysql_query($query, $link);
+			while($row=mysql_fetch_array($resultado)){ 
+				$pie=$row[1];
+
+				}?>
 						<p style="text-align: center">
-							Nos sentimos orgullosos de ser uno de los más importantes distribuidores de Honda en el sureste de México. Vemos "El Poder de los Sueños", filosofía Honda.
+							<?php echo $pie;?>
 						</p>
 								</div>
 				</div>
 			</div>
 		</div>
-		 <script src="js/jquery.js"></script>
     <script src="js/bootstrap.min.js"></script>
     <script src="js/carousel.js"></script>
     <script src="js/jquery.anythingslider.js"></script>
-    <script src="js/jquery.stellar.js"></script>
-	<script src="js/jquery-ui-1.10.3.custom.js"></script>
-    <script src="js/counter.js"></script>
-    <script src="js/waypoints.js"></script>
-	<script src="js/jquery.uniform.js"></script>
-    <script src="js/color-switcher.js"></script>
     <script type="text/javascript">
 	
 		jQuery(function($){
-			// parallaax
-			$.stellar({
-				horizontalScrolling: true,
-				verticalOffset: 0
-			});
-			//$(".panel-collapse").collapse();
-
-			
+		
 		   // AnythingSlider initialization
 			$('#slider').anythingSlider({
         enablePlay          : true,      // if false, the play/stop button will still be visible, but not clickable.
@@ -268,17 +261,6 @@ $log='<a href="registro.php" style="color:#69AE1D">
         animationTime       : 600,       // How long the slideshow transition takes (in milliseconds)
         easing              : "swing",   // Anything other than "linear" or "swing" requires the easing plugin
       });
-			
-			//date picker
-			$("#datepicker").datepicker({
-				inline: true
-			});
-			
-			//form styling
-			$("select").uniform();
-			
-			
-			
 		})(jQuery);
 
 	</script>
